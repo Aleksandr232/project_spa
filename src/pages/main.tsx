@@ -1,7 +1,7 @@
 import React from "react";
-import { AiportSearch } from "../aiportSearch";
-import { AirportCart } from "../airportCart";
-import { AirportFilter } from "../airportFilter";
+import { AiportSearch } from "../components/aiportSearch";
+import { AirportCart } from "../components/airportCart";
+import { AirportFilter } from "../components/airportFilter";
 
 
 export  function Main(){

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Main } from './components/pages/main';
-import { Auth } from './components/pages/auth';
-import { Airoport } from './components/pages/airport';
+import { Main } from './pages/main';
+import { Auth } from './pages/auth';
+import { Airoport } from './pages/airport';
 import { Navigation } from './components/Navigation';
 
 
