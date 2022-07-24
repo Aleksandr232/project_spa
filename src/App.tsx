@@ -1,9 +1,16 @@
 import React from 'react';
+import { Route, Router } from 'react-router-dom';
 
 
 function App() {
   return (
-    <div>g5g</div>
+    <div>
+      <Router>
+          <Route path=''/>
+          <Route path=''/>
+          <Route path=''/>
+      </Router>
+    </div>
   );
 }
 
