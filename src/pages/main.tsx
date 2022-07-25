@@ -21,6 +21,7 @@ export  function Main(){
             <AirportFilter/>
 
             {loading && <p className="text-center text-lg">Загрузка....</p>}
+            {error && <p className="text-center text-lg text-red-600">{error}</p>}
 
             {
                 airports.map(airport => <AirportCart key={airport.id} airport={airport}/>)
