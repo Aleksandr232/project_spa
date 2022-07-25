@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../hook/redux";
 import { AiportSearch } from "../components/aiportSearch";
 import { AirportCart } from "../components/airportCart";
 import { AirportFilter } from "../components/airportFilter";
@@ -7,7 +7,7 @@ import { fetchAirports } from "../store/actions/airportAction";
 
 
 export  function Main(){
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
     useEffect(()=>{
         dispatch(fetchAirports())
