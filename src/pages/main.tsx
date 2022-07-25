@@ -20,8 +20,10 @@ export  function Main(){
 
             <AirportFilter/>
 
+            {loading && <p className="text-center text-lg">Загрузка....</p>}
+
             {
-                airports.map(airport => <AirportCart key={airport.id}/>)
+                airports.map(airport => <AirportCart key={airport.id} airport={airport}/>)
             }
         </div>
     )
