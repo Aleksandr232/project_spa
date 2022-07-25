@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useAppDispatch } from "../hook/redux";
+import { useAppDispatch, useAppSelector } from "../hook/redux";
 import { AiportSearch } from "../components/aiportSearch";
 import { AirportCart } from "../components/airportCart";
 import { AirportFilter } from "../components/airportFilter";
@@ -8,6 +8,7 @@ import { fetchAirports } from "../store/actions/airportAction";
 
 export  function Main(){
     const dispatch = useAppDispatch()
+    const {error, loading, airports} = useAppSelector(state=>state.airport)
 
     useEffect(()=>{
         dispatch(fetchAirports())
@@ -19,7 +20,9 @@ export  function Main(){
 
             <AirportFilter/>
 
-            <AirportCart/>
+            {
+                airports.map(airport => <AirportCart key={airport.id}/>)
+            }
         </div>
     )
 }

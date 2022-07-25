@@ -1,8 +1,15 @@
 import React from "react";
+import {IAirport} from '../models/models'
+
+interface AirportCartProps{
+    airport: IAirport
+}
 
 
-export function AirportCart(){
+export function AirportCart({airport}: AirportCartProps){
     return(
-        <div>fdg</div>
+        <div>
+            {airport.name}
+        </div>
     )
 }
