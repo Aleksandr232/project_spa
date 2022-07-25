@@ -1,18 +1,30 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../hook/redux";
 import { AiportSearch } from "../components/aiportSearch";
 import { AirportCart } from "../components/airportCart";
 import { AirportFilter } from "../components/airportFilter";
 import { fetchAirports } from "../store/actions/airportAction";
+import ReactPaginate from 'react-paginate';
+
+
+const ITEMS_PER_PAGE = 50
 
 
 export  function Main(){
     const dispatch = useAppDispatch()
-    const {error, loading, airports} = useAppSelector(state=>state.airport)
+    const [page, setPage] =useState(1)
+    const {error, loading, airports, count} = useAppSelector(state=>state.airport)
+
+    const pageCount = Math.ceil(count / ITEMS_PER_PAGE)
+
+    const pangeChangeHandler=({selected} : {selected: number})=>{
+        /* console.log(event) */
+    }
+
 
     useEffect(()=>{
-        dispatch(fetchAirports())
-    },[])
+        dispatch(fetchAirports(page, ITEMS_PER_PAGE))
+    },[dispatch, page])
 
     return(
         <div className="container mx-auto max-w-[760px] pt-5">
@@ -26,6 +38,14 @@ export  function Main(){
             {
                 airports.map(airport => <AirportCart key={airport.id} airport={airport}/>)
             }
+                <ReactPaginate
+                    breakLabel="..."
+                    nextLabel=">"
+                    onPageChange={pangeChangeHandler}
+                    pageRangeDisplayed={3}
+                    pageCount={pageCount}
+                    previousLabel="<"
+                    />
         </div>
     )
 }

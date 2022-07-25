@@ -14,9 +14,10 @@ export const fetchAirports=(page=1, count: number = 50)=>{
             }
           })
           console.log(response)
-          dispatch(airportSlice.actions.fetchSuccess(
-            response.data.results
-          ))
+          dispatch(airportSlice.actions.fetchSuccess({
+            airports: response.data.results,
+            count: response.data.count
+          }))
         
         }catch(e){
           dispatch(airportSlice.actions.fetchError(e as Error))
