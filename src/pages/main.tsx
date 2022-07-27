@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../hook/redux";
-import { AiportSearch } from "../components/aiportSearch";
+import { AirportSearch } from "../components/airportSearch";
 import { AirportCart } from "../components/airportCart";
 import { AirportFilter } from "../components/airportFilter";
 import { fetchAirports } from "../store/actions/airportAction";
@@ -28,7 +28,7 @@ export  function Main(){
 
     return(
         <div className="container mx-auto max-w-[760px] pt-5">
-            <AiportSearch/>
+            <AirportSearch/>
 
             <AirportFilter/>
 
