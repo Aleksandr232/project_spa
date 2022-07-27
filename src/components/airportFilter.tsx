@@ -28,6 +28,14 @@ export function AirportFilter(){
         setFilter(prev=>({...prev, [event.target.name]: event.target.value}))
     }
 
+    const clearFilter=()=>{
+        setFilter({
+            type:'',
+            region:'',
+            country:''
+        })
+    }
+
 
     if(loading) return <p className="text-center">Загрузка...</p>
 
@@ -62,7 +70,7 @@ export function AirportFilter(){
                 <option value="" disabled>Страна</option>
                 {countries.map(c =><option key={c}>{c}</option>)}
             </select>
-             {showbutton && <button className="py-1 px-4 bg-red-500 text-white">&times;</button>}
+             {showbutton && <button onClick={} className="py-1 px-4 bg-red-500 text-white">&times;</button>}
         </div>
     )
 }
