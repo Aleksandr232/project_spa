@@ -1,15 +1,26 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { useAppSelector } from "../hook/redux";
 import { IFilter } from "../models/models";
 
 
 export function AirportFilter(){
     const {regions, countries, loading, types} = useAppSelector(state => state.handbook)
+    const [showbutton, setShowbutton] = useState(false)
     const[filter, setFilter] = useState<IFilter >({
         type:'',
         country:'',
         region:''
     })
+
+    const isfilterEnabded=()=>{
+        return filter.type || filter.region || filter.country
+    }
+
+    useEffect(()=>{
+        if(isfilterEnabded()){
+            setFilter(true)
+        }
+    },[filter])
 
     const changeHandler = (event:ChangeEvent<HTMLSelectElement>) =>{
         setFilter(prev=>({...prev, [event.target.name]: event.target.value}))
@@ -23,7 +34,7 @@ export function AirportFilter(){
             <span className="font-bold mr-2"> Фильтр</span>
 
             <select
-                name="types" 
+                name="type" 
                 className="mr-2 border py-1 px-2"
                 onChange={changeHandler}
                 value={filter.type}
@@ -32,7 +43,7 @@ export function AirportFilter(){
                 {types.map(t =><option key={t}>{t}</option>)}
             </select>
             <select 
-                name="regions"
+                name="region"
                 className="mr-2 border py-1 px-2" 
                 onChange={changeHandler}
                 value={filter.region}
@@ -41,7 +52,7 @@ export function AirportFilter(){
                 {regions.map(r =><option key={r}>{r}</option>)}
             </select>
             <select 
-                name="countries"
+                name="country"
                 className="mr-2 border py-1 px-2"
                 onChange={changeHandler}
                 value={filter.country}
@@ -49,6 +60,7 @@ export function AirportFilter(){
                 <option value="" disabled>Страна</option>
                 {countries.map(c =><option key={c}>{c}</option>)}
             </select>
+             {showbutton && <button className="py-1 px-4 bg-red-500 text-white">&times;</button>}
         </div>
     )
 }
