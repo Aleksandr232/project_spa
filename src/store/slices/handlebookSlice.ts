@@ -8,6 +8,12 @@ interface HandBookState{
     countries: IAirportCountry[]
 }
 
+interface HandBookPayload{
+    types: IAirportType[]
+    countries: IAirportCountry[]
+    regions: IAirportRegion[]
+}
+
 
 
 
@@ -20,21 +26,22 @@ const initialState: HandBookState={
 
 }
 
-export const handbookSlice = createSlice({
+export const handlebookSlice = createSlice({
     name:'handbook',
     initialState,
     reducers:{
         fetching(state){
             state.loading = true
         },
-        fetchSuccess(state, action: PayloadAction){
+        fetchSuccess(state, action: PayloadAction<HandBookPayload>){
             state.loading = false
-            /* state.types = action.payload.airports */
-            
+            state.types = action.payload.types
+            state.regions = action.payload.regions
+            state.countries = action.payload.countries
         }
        
     }
 })
 
 
-export default handbookSlice.reducer
+export default handlebookSlice.reducer
