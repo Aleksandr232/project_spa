@@ -70,7 +70,7 @@ export function AirportFilter(){
                 <option value="" disabled>Страна</option>
                 {countries.map(c =><option key={c}>{c}</option>)}
             </select>
-             {showbutton && <button onClick={} className="py-1 px-4 bg-red-500 text-white">&times;</button>}
+             {showbutton && <button onClick={clearFilter} className="py-1 px-4 bg-red-500 text-white">&times;</button>}
         </div>
     )
 }
