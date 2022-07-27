@@ -18,7 +18,9 @@ export function AirportFilter(){
 
     useEffect(()=>{
         if(isfilterEnabded()){
-            setFilter(true)
+            setShowbutton(true)
+        }else{
+            setShowbutton(false)
         }
     },[filter])
 
