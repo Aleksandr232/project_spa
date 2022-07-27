@@ -25,8 +25,8 @@ export function AirportFilter(){
             <select
                 name="types" 
                 className="mr-2 border py-1 px-2"
-                defaultValue=''
                 onChange={changeHandler}
+                value={filter.type}
              >
                 <option value="" disabled>Тип</option>
                 {types.map(t =><option key={t}>{t}</option>)}
@@ -34,8 +34,8 @@ export function AirportFilter(){
             <select 
                 name="regions"
                 className="mr-2 border py-1 px-2" 
-                defaultValue=''
                 onChange={changeHandler}
+                value={filter.region}
             >
                 <option value="" disabled>Регион</option>
                 {regions.map(r =><option key={r}>{r}</option>)}
@@ -43,8 +43,8 @@ export function AirportFilter(){
             <select 
                 name="countries"
                 className="mr-2 border py-1 px-2"
-                defaultValue=''
                 onChange={changeHandler}
+                value={filter.country}
             >
                 <option value="" disabled>Страна</option>
                 {countries.map(c =><option key={c}>{c}</option>)}
