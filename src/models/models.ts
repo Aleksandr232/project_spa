@@ -22,3 +22,8 @@ export type IAirportRegion = string
 export type IAirportCountry = string
 
 
+export interface IFilter{
+    type: IAirportType
+    region: IAirportRegion
+    country: IAirportCountry
+}
