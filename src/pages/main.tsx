@@ -12,7 +12,7 @@ const ITEMS_PER_PAGE = 50
 
 export  function Main(){
     const dispatch = useAppDispatch()
-    const [page, setPage] =useState(0)
+    const [page, setPage] =useState(1)
     const {error, loading, airports, count} = useAppSelector(state=>state.airport)
 
     const pageCount = Math.ceil(count / ITEMS_PER_PAGE)
