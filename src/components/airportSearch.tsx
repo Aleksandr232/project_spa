@@ -38,7 +38,7 @@ export function AirportSearch() {
 
   function renderDropdown() {
     if (results.length === 0) {
-      return <p className="text-center">No results!</p>
+      return <p className="text-center">Нет результатов</p>
     }
 
     return results.map(airport => (
