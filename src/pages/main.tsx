@@ -45,6 +45,8 @@ export  function Main(){
                     pageRangeDisplayed={3}
                     pageCount={pageCount}
                     previousLabel="<"
+                    containerClassName="flex"
+                    pageClassName="py-1 px-2 border"
                     />
         </div>
     )
