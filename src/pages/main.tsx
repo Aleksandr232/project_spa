@@ -12,13 +12,13 @@ const ITEMS_PER_PAGE = 50
 
 export  function Main(){
     const dispatch = useAppDispatch()
-    const [page, setPage] =useState(1)
+    const [page, setPage] =useState(0)
     const {error, loading, airports, count} = useAppSelector(state=>state.airport)
 
     const pageCount = Math.ceil(count / ITEMS_PER_PAGE)
 
     const pangeChangeHandler=({selected} : {selected: number})=>{
-        /* console.log(event) */
+        setPage(selected + 1)
     }
 
 
