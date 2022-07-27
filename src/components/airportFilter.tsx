@@ -1,9 +1,11 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
-import { useAppSelector } from "../hook/redux";
+import { useAppDispatch, useAppSelector } from "../hook/redux";
 import { IFilter } from "../models/models";
+import {airportSlice} from "../store/slices/airoportSlice";
 
 
 export function AirportFilter(){
+    const dispatch = useAppDispatch()
     const {regions, countries, loading, types} = useAppSelector(state => state.handbook)
     const [showbutton, setShowbutton] = useState(false)
     const[filter, setFilter] = useState<IFilter >({
@@ -22,6 +24,8 @@ export function AirportFilter(){
         }else{
             setShowbutton(false)
         }
+
+        dispatch(airportSlice.actions.filter(filter))
     },[filter])
 
     const changeHandler = (event:ChangeEvent<HTMLSelectElement>) =>{
