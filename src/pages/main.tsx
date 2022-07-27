@@ -46,7 +46,10 @@ export  function Main(){
                     pageCount={pageCount}
                     previousLabel="<"
                     containerClassName="flex"
-                    pageClassName="py-1 px-2 border"
+                    pageClassName="py-1 px-2 border mr-2"
+                    previousClassName="py-1 px-2 border mr-2"
+                    nextClassName="py-1 px-2 border"
+                    activeClassName="bg-gray-500 text-white"
                     />
         </div>
     )
