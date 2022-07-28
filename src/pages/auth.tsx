@@ -1,12 +1,15 @@
 import React from "react";
 import { useInput } from "../hook/input";
 import { useAppDispatch } from "../hook/redux";
-import { register } from "../store/actions/authActions";
+import { register, login } from "../store/actions/authActions";
+import {useNavigate} from "react-router-dom";
+
 
 
 export function Auth(){
     const username = useInput('')
     const password = useInput('')
+    const navigate = useNavigate()
     const dispatch = useAppDispatch()
 
     const isFormValid = () =>username.value && password.value
@@ -15,11 +18,15 @@ export function Auth(){
         event.preventDefault()
 
         if(isFormValid()){
-            dispatch(register({username: username.value, password: password.value}))
+            dispatch(register({username: username.value, password: password.value})).then(()=>{
+                navigate('/')
+            })
         }else{
             alert('Заполните форму')
         }
     }
+
+    
 
    
 
@@ -35,7 +42,7 @@ export function Auth(){
                 <label htmlFor="password" className="block">Пароль пользователя</label>
                 <input type="text" {...password} className="border py-1 px-2 w-full" id='username'/>
             </div>
-            <button className="py-2 px-4 bg-blue-700 boder text-white">Регистрация</button>
+            <button onClick={sumbitHandler} className="py-2 px-4 bg-blue-700 boder text-white" >Регистрация</button>
         </form>
     )
 }
