@@ -4,16 +4,19 @@ import {IAirportType, IAirportRegion, IAirportCountry } from '../../models/model
 interface AuthState{
     access:string
     username:string
+    isAuth: boolean
 }
 
 interface AuthPayload{
     access:string
     username:string
+    
 }
 
 const initialState: AuthState={
   access:'',
-  username:''
+  username:'',
+  isAuth: false
 
 
 }
@@ -25,6 +28,7 @@ export const authSlice = createSlice({
         login(state, action:PayloadAction<AuthPayload>){
             state.access = action.payload.access
             state.username = action.payload.username
+            state.isAuth = Boolean(action.payload.access)
         }
        
     }
