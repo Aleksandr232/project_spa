@@ -14,6 +14,17 @@ export function Auth(){
 
     const isFormValid = () =>username.value && password.value
 
+    const loginHandler =(event: React.FormEvent) => {
+        event.preventDefault()
+        if (isFormValid()) {
+            dispatch(login({username: username.value, password: password.value})).then(()=>{
+                navigate('/')
+            })
+        } else {
+          alert('Войти')
+        }
+      }
+
     const sumbitHandler=(event: React.FormEvent)=>{
         event.preventDefault()
 
