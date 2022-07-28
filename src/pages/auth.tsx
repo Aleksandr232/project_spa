@@ -25,16 +25,23 @@ export function Auth(){
         }
       }
 
-    const sumbitHandler=(event: React.FormEvent)=>{
-        event.preventDefault()
+    const sumbitHandler=async (event: React.FormEvent)=>{
+        try{
+            event.preventDefault()
 
-        if(isFormValid()){
-            dispatch(register({username: username.value, password: password.value})).then(()=>{
+            if(isFormValid()){
+                await dispatch(register({username: username.value, password: password.value})).then(()=>{
+                    
+                })
                 navigate('/')
-            })
-        }else{
-            alert('Заполните форму')
+            }else{
+                alert('Заполните форму')
+            }
+
+        }catch(e){
+
         }
+        
     }
 
     
