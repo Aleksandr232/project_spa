@@ -1,13 +1,25 @@
 import React from "react";
 import { useInput } from "../hook/input";
+import { useAppDispatch } from "../hook/redux";
+import { register } from "../store/actions/authActions";
 
 
 export function Auth(){
     const username = useInput('')
     const password = useInput('')
+    const dispatch = useAppDispatch()
+
+    const isFormValid = () =>username.value && password.value
+
     const sumbitHandler=(event: React.FormEvent)=>{
         event.preventDefault()
+
+        if(isFormValid()){
+            dispatch(register({username: username.value, password: password.value}))
+        }
     }
+
+   
 
     return(
         <form className="container mx-auto max-w-[500px] pt-8"
