@@ -16,6 +16,8 @@ export function Auth(){
 
         if(isFormValid()){
             dispatch(register({username: username.value, password: password.value}))
+        }else{
+            alert('Заполните форму')
         }
     }
 
@@ -33,6 +35,7 @@ export function Auth(){
                 <label htmlFor="password" className="block">Пароль пользователя</label>
                 <input type="text" {...password} className="border py-1 px-2 w-full" id='username'/>
             </div>
+            <button className="py-2 px-4 bg-blue-700 boder text-white">Регистрация</button>
         </form>
     )
 }
