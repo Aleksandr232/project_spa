@@ -38,7 +38,7 @@ export  function Main(){
             {
                 airports.map(airport => <AirportCart key={airport.id} airport={airport}/>)
             }
-                <ReactPaginate
+                { pageCount && <ReactPaginate
                     breakLabel="..."
                     nextLabel=">"
                     onPageChange={pangeChangeHandler}
@@ -50,7 +50,7 @@ export  function Main(){
                     previousClassName="py-1 px-2 border mr-2"
                     nextClassName="py-1 px-2 border"
                     activeClassName="bg-gray-500 text-white"
-                    />
+                    />}
         </div>
     )
 }
