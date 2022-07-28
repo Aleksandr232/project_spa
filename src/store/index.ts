@@ -6,7 +6,7 @@ import authSlice from "./slices/authSlice";
 const rootReducer = combineReducers({
     airport: airportReducer,
     handbook: handlebookReducer,
-    auth: authSlice
+    auth: authSlice,
 
 })
 

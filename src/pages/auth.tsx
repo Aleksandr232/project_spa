@@ -43,6 +43,7 @@ export function Auth(){
                 <input type="text" {...password} className="border py-1 px-2 w-full" id='username'/>
             </div>
             <button onClick={sumbitHandler} className="py-2 px-4 bg-blue-700 boder text-white" >Регистрация</button>
+            <button onClick={loginHandler} className="py-2 px-6 bg-blue-700 boder text-white" >Вход</button>
         </form>
     )
 }
